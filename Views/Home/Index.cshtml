@@ -1,0 +1,40 @@
+@model IEnumerable<IdentityWork.Models.User>
+
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<a asp-controller="Home" asp-action="Create">Create new user</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>PasswordHash</th>
+            <th>DateCreated</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PasswordHash</td>
+                <td>@user.DateCreated</td>
+                <td>
+                    <a asp-controller="Home" asp-action="Edit" class="btn btn-primary " asp-route-id="@user.Id">Edit</a>
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post" asp-route-id="@user.Id">
+                        <button class="btn btn-danger " type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+﻿@model RolesCreateViewModel
+@{
+    ViewData["Title"] = "Create role";
+}
+<form asp-controller="Roles" asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>

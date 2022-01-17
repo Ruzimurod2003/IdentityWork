@@ -1,0 +1,38 @@
+﻿@model HomeEditViewModel
+@{
+    ViewData["Title"] = "Edit user";
+}
+<form asp-action="Edit" method="post" asp-controller="Home">
+    <div class="card-deck text-center">
+        <div class="card m-3">
+
+            <div class="card-header">
+                <h3>@Model.UserName</h3>
+            </div>
+            <div class=form-group>
+                <input type="hidden" asp-for="Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+            </div>
+            <div class="form-group">
+                <label asp-for="NewPassword"></label>
+                <input asp-for="NewPassword" type="password" />
+            </div>
+            <div class="form-group">
+                <label asp-for="phoneNumber"></label>
+                <input asp-for="phoneNumber" />
+            </div>
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a asp-action="Index" class="btn btn-danger">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,72 @@
+﻿@model AccountLoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center align-items-center m-0" style="height: 100vh;">
+        <div class="login_oueter">
+            <form asp-action="Login" id="login" asp-route-returnUrl="@Model.ReturnUrl" class="bg-light border p-3" method="post" asp-controller="Account">
+                <div asp-validation-summary="All"></div>
+                <div class="form-row">
+                    <h4 class="title my-3">Login For Access</h4>
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="bi bi-person-fill"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Email" type="text" class="input form-control" placeholder="Please enter your email" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Password" type="password" class="input form-control" id="password" placeholder="Please enter your password" aria-label="password" aria-describedby="basic-addon1" />
+                            <div class="input-group-append">
+                                <span class="input-group-text" onclick="password_show_hide();">
+                                    <i class="bi bi-eye" id="show_eye"></i>
+                                    <i class="bi bi-eye-slash d-none" id="hide_eye"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group form-check text-left">
+                            <input type="checkbox" name="remember" class="form-check-input" id="remember_me" />
+                            <label class="form-check-label" for="remember_me">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 pt-3 text-right">
+                        <p>Already registered <a asp-action="Create" asp-controller="Home">Register</a></p>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                </div>
+            </form>
+            <script>
+                  function password_show_hide() {
+                  var x = document.getElementById("password");
+                  var show_eye = document.getElementById("show_eye");
+                  var hide_eye = document.getElementById("hide_eye");
+                  hide_eye.classList.remove("d-none");
+                  if (x.type === "password") {
+                    x.type = "text";
+                    show_eye.style.display = "none";
+                    hide_eye.style.display = "block";
+                  } else {
+                    x.type = "password";
+                    show_eye.style.display = "block";
+                    hide_eye.style.display = "none";
+                  }
+                }
+            </script>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model HomeCreateViewModel;
+@{
+    ViewBag.Title = "Create user";
+}
+<form asp-controller="Home" asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <div class="form-group">
+        <label asp-for="phoneNumber"></label>
+        <input asp-for="phoneNumber" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<User>
+<h3>List of users</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserName</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td><a asp-action="Edit" class="btn btn-dark" asp-route-userid="@user.Id">Role</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
