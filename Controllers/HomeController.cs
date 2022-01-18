@@ -76,7 +76,7 @@ namespace IdentityWork.Controllers
                 user.Email = model.Email;
                 user.UserName = model.UserName;
                 user.PhoneNumber = model.phoneNumber;
-                user.PasswordHash = _passwordHasher.HashPassword(user, model.NewPassword);
+                user.PasswordHash = _passwordHasher?.HashPassword(user, model.NewPassword);
 
                 var Result = await userManager.UpdateAsync(user);
                 if (Result.Succeeded)
