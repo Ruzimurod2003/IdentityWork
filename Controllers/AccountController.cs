@@ -18,7 +18,7 @@ namespace IdentityWork.Controllers
         public IActionResult Index() => View();
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             return View(new AccountLoginViewModel { ReturnUrl = returnUrl });
         }
